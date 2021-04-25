@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(248, 246, 246);
+    margin: 0;
+}
+
+h1 {
+    background-color: rgb(96, 194, 255);
+    text-align: center;
+    margin: 0;
+    padding: 1.5em;
+}
+
+main {
+    background-color:white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    width: 80%;
+}
+
+h2 {
+    text-align: center;
+    padding: .25em;
+}
+
+.list-body {
+    margin: 0;
+    text-align: center;
+}
+
+.todos {}
+
+.completed-tasks {}
