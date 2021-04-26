@@ -17,6 +17,15 @@ const config = {
     idleTimeoutMillis: 30000,
 }
 
+// Testing connection to DB
+pool.on("connect", () => {
+    console.log("connected to postgres");
+});
+
+pool.on("error", (err) => {
+    console.log("Error connecting to postgres", err);
+});
+
 // GET
 ToDoRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todo-list" ORDER BY "id";'

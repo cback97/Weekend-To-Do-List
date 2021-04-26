@@ -33,7 +33,7 @@ function getTasks() {
     }).then(function (response) {
         console.log(response);
         //must render tasks onto DOM here
-
+       renderTasks();
     }).catch(function (error) {
         console.log('GET error', error);
     });
@@ -41,7 +41,6 @@ function getTasks() {
 
 function renderTasks() {
    $('.todos').empty();
-
    for (let i= 0; i < response.length; i++) {
           if (response[i].done === true ) {
               $('.done').append(`<div class="active"><li>${response.task}</li><span><button data-id="${response.id}">Mark Complete</button></span></div>`)
