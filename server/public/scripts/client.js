@@ -7,10 +7,10 @@ console.log('jquery is working');
 
 }
 
-function addTask {
+// function addTask {
 
-}
+// }
 
-function removeTask {
-    
-}
+// function removeTask {
+
+// }
