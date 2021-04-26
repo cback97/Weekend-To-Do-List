@@ -1,5 +1,7 @@
 const express = require('express')
-const {Router} = require('express');
+const {
+    Router
+} = require('express');
 const ToDoRouter = express.Router();
 
 
@@ -10,7 +12,7 @@ const pg = require('pg');
 const pool = new pg.Pool(config)
 
 const config = {
-    database:'weekend-to-do-app',
+    database: 'weekend-to-do-app',
     host: 'localhost',
     port: '5432',
     max: '10',
@@ -29,7 +31,20 @@ ToDoRouter.get('/', (req, res) => {
 });
 
 // POST
-
+ToDoRouter.post('/', (req, res) => {
+    let newTask = req.body;
+    console.log('adding new task', newTask);
+    let queryText = `INSERT INTO "todo-list" ("task")
+                     VALUES ($1);`;
+    pool.query(queryText, [newTask.task])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log('Error adding new task', error);
+            res.sendStatus(500);
+        })
+});
 // PUT
 
 // DELETE
