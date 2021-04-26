@@ -3,14 +3,13 @@ $(document).ready(onReady);
 console.log('client side js is ready!');
 
 function onReady() {
-console.log('jquery is working');
+    console.log('jquery is working');
+    addTask();
 
 }
 
-// function addTask {
-
-// } End addTask
-
-// function removeTask {
-
-// } End removeTask
+function addTask(){
+    $('i').on('click', function (){
+        console.log(`Yes I'm Working!`);
+    });
+}
