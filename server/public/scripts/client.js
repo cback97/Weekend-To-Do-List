@@ -25,5 +25,14 @@ function addTask(){
 } // end addTask
 
 function getTasks() {
-    $.aja
+    $.ajax({
+        type: 'GET',
+        url: '/todos'
+    }).then(function (response) {
+        console.log(response);
+        //must render tasks onto DOM here
+
+    }).catch(function (error) {
+        console.log('GET error', error);
+    });
 }
