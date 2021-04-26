@@ -9,8 +9,8 @@ console.log('jquery is working');
 
 // function addTask {
 
-// }
+// } End addTask
 
 // function removeTask {
 
-// }
+// } End removeTask
