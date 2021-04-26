@@ -9,7 +9,21 @@ function onReady() {
 }
 
 function addTask(){
-    $('i').on('click', function (){
-        console.log(`Yes I'm Working!`);
-    });
+    let newTask = {
+        task: $('.task-input').val()
+    }
+    $.ajax({
+        type: 'POST',
+        url: '/todos',
+        data: newTask
+    }).then(function(response) {
+        console.log('Server Response', response);
+    }).catch(function (error) {
+        console.log('POST error', error);
+        alert('unable to create new task, try again later')
+    })
+} // end addTask
+
+function getTasks() {
+    $.aja
 }

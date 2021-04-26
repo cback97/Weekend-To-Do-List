@@ -10,7 +10,12 @@ const ToDoRouter = require('./routes/todorouter.js');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
+//ROUTE
+app.use('/todos', ToDoRouter)
+
 app.listen(PORT, () =>{
     console.log('Listening on Port', PORT)
 })
+
+
 
