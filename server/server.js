@@ -4,8 +4,9 @@ const app = express();
 const bodyParser = require(body-parser);
 const PORT = 5000;
 const ToDoRouter = require('./routes/todorouter.js');
+const pool = require('./modules/pool.js')
 
-
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
