@@ -7,36 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Kanit:ital,wght@1,500&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
     <script src="vendors/jQuery.js"></script>
     <script src="scripts/client.js"></script>
 </head>
 
 <body>
-    <h1>Get er` Done</h1>
+    <div class="element-align">
 
-    <main>
+        <header>
+            <h1>GET IT DONE</h1>
+        </header>
 
-        <h2 id="list-header">ToDo's</h2>
+        <main>
 
-        <section class="list-body">
-            <div id="add-task">
-                <header>
-                    <h4>Tasks</h4>
-                </header>
-                <ul class="todos">
-                    <!-- jQuery Appending Here -->
-                </ul>
-            </div>
-            <div id="completed-tasks">
-                <div>
-                    <h4>Completed</h4>
+            <h2 id="list-header">Weekend To-Do List</h2>
+
+            <section class="list-body">
+                <div id="add-task">
+                    <header>
+                        <h4>Tasks</h4>
+                    </header>
+                    <ul class="todos">
+                        <!-- jQuery Appending Here -->
+                    </ul>
                 </div>
-                <ul class="done">
-                    <!-- jQuery Appending Here -->
-                </ul>
-            </div>
-        </section>
-    </main>
+                <div id="accomplished-tasks">
+                    <div>
+                        <header>
+                            <h4>Accomplished</h4>
+                        </header>
+                    </div>
+                    <ul class="done">
+                        <!-- jQuery Appending Here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>
