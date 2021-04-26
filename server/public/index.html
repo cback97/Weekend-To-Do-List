@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Kanit:ital,wght@1,500&family=Quicksand:wght@400;600&display=swap"
@@ -29,8 +30,11 @@
             <section class="list-body">
                 <div id="add-task">
                     <header>
-                        <h4>Tasks</h4>
+                        <br>
+                        <h4 id="task-header">Tasks</h4>
                     </header>
+                    <input class="task-input" type="text" placeholder="Add a task">
+                    <span><i class="material-icons" alt="add task">add</i></span>
                     <ul class="todos">
                         <!-- jQuery Appending Here -->
                     </ul>
@@ -38,7 +42,7 @@
                 <div id="accomplished-tasks">
                     <div>
                         <header>
-                            <h4>Accomplished</h4>
+                            <h4 id="complete-header">Accomplished</h4>
                         </header>
                     </div>
                     <ul class="done">

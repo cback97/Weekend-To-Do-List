@@ -6,3 +6,11 @@ function onReady() {
 console.log('jquery is working');
 
 }
+
+function addTask {
+
+}
+
+function removeTask {
+    
+}
