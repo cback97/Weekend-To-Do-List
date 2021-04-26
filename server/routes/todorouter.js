@@ -1,7 +1,5 @@
 const express = require('express')
-const {
-    Router
-} = require('express');
+const {Router} = require('express');
 const ToDoRouter = express.Router();
 
 
