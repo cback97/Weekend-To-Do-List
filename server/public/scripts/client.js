@@ -12,15 +12,13 @@ function onReady() {
 function addORdelete(){
 
     $('#addTask').on('click', function(){
-
         let newTask = {
             task: $('.task-input').val()
-        }
-
+        };
         // Add new task to DB on click
         captureTask(newTask);
-
-    })
+    });
+$('.done').on('click', '.completeTask', finishedTaskHandler)
  
 } 
 
@@ -71,6 +69,10 @@ function renderTasks(addTask) {
    }
 }
 
+// click handler
+function finishedTaskHandler(){
+    finishedTask($(this).data("id"));
+}
 
 function finishedTask(taskID){
     $.ajax({
@@ -78,6 +80,7 @@ function finishedTask(taskID){
         url:`/todos/${taskID}`,
         data: taskID
     }).then( response => {
+        // re-render tasks
         getTasks();
     }).catch( error => {
         console.log('Error, Not able to mark task complete', error);
