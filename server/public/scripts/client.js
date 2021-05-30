@@ -43,6 +43,7 @@ $.ajax({
 }
 
 
+
 function getTasks() {
     $.ajax({
         type: 'GET',
@@ -56,14 +57,29 @@ function getTasks() {
     });
 }
 
+
+
 function renderTasks(addTask) {
    $('.todos').empty();
    for (let i= 0; i < addTask.length; i++) {
           if (addTask[i].done == false ) {
-              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button data-id="${addTask.id}">Mark Complete</button></span></div>`)
+              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask.id}">Mark Complete</button></span></div>`)
           } else {
-              $('.todos').append(`
-              <div class="done"><li>${addTask.task}</li><span><button data-id="${addTask.id}">Remove</button></span></div>`)
+              $('.done').append(`
+              <div class="done"><li>${addTask.task}</li><span><button class="deleteTask" data-id="${addTask.id}">Remove</button></span></div>`)
           }
    }
+}
+
+
+function finishedTask(taskID){
+    $.ajax({
+        method:'PUT',
+        url:`/todos/${taskID}`,
+        data: taskID
+    }).then( response => {
+        getTasks();
+    }).catch( error => {
+        console.log('Error, Not able to mark task complete', error);
+    })
 }
