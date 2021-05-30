@@ -14,17 +14,14 @@ function addORdelete(){
     let newTask = {
         task: $('.task-input').val()
     }
-    $.ajax({
-        type: 'POST',
-        url: '/todos',
-        data: newTask
-    }).then(function(response) {
-        console.log('Server Response', response);
-    }).catch(function (error) {
-        console.log('POST error', error);
-        alert('unable to create new task, try again later')
-    })
+ 
 } // end addTask
+
+
+function captureTask(newTask){
+console.log('In captureTask', newTask);
+}
+
 
 function getTasks() {
     $.ajax({
