@@ -18,5 +18,9 @@ app.listen(PORT, () =>{
     console.log('Listening on Port', PORT)
 })
 
+//heroku pg:push your_database DATABASE_URL
 
 
+//heroku addons:create heroku-postgresql:hobby-dev
+
+//heroku pg:push your_database DATABASE_URL

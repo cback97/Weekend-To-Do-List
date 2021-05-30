@@ -6,11 +6,11 @@ console.log('client side js is ready!');
 
 function onReady() {
     console.log('jquery is working');
-    addTask();
+    addORdelete();
 
 }
 
-function addTask(){
+function addORdelete(){
     let newTask = {
         task: $('.task-input').val()
     }
