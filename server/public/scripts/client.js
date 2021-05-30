@@ -1,21 +1,25 @@
-const { response } = require("express");
-
 $(document).ready(onReady);
 
 console.log('client side js is ready!');
 
 function onReady() {
     console.log('jquery is working');
+    // click event handler(s)
     addORdelete();
 
 }
 
 function addORdelete(){
-    let newTask = {
-        task: $('.task-input').val()
-    }
+
+    $('#addTask').on('click', function(){
+
+        let newTask = {
+            task: $('.task-input').val()
+        }
+
+    })
  
-} // end addTask
+} 
 
 
 function captureTask(newTask){
