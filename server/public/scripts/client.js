@@ -20,6 +20,18 @@ function addORdelete(){
 
 function captureTask(newTask){
 console.log('In captureTask', newTask);
+$.ajax({
+    type: 'POST',
+    url: '/todos',
+    data: newTask
+}).then( response => {
+    console.log('Server Response', response);
+    // re-render task list here via GET route function
+
+}).catch(error => {
+    console.log('POST error', error);
+    alert('unable to create new task, try again later')
+})
 }
 
 
