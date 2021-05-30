@@ -21,6 +21,7 @@
   "homepage": "https://github.com/cback97/week9-weekendchallenge#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "pg": "^8.6.0",
     "postgres": "^1.0.2"
   },
   "devDependencies": {

@@ -1,5 +1,4 @@
 const express = require('express');
-const {Router, response} = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 

@@ -34,11 +34,12 @@ $.ajax({
 }).then( response => {
     console.log('Server Response', response);
     // re-render task list here via GET route function
-
+    getTasks();
 }).catch(error => {
     console.log('POST error', error);
     alert('unable to create new task, try again later')
 })
+
 }
 
 
@@ -46,23 +47,23 @@ function getTasks() {
     $.ajax({
         type: 'GET',
         url: '/todos'
-    }).then(function (response) {
+    }).then(response => {
         console.log(response);
         //must render tasks onto DOM here
-       renderTasks();
-    }).catch(function (error) {
+       renderTasks(response);
+    }).catch(error => {
         console.log('GET error', error);
     });
 }
 
-function renderTasks() {
+function renderTasks(addTask) {
    $('.todos').empty();
-   for (let i= 0; i < response.length; i++) {
-          if (response[i].done === true ) {
-              $('.done').append(`<div class="active"><li>${response.task}</li><span><button data-id="${response.id}">Mark Complete</button></span></div>`)
+   for (let i= 0; i < addTask.length; i++) {
+          if (addTask[i].done == false ) {
+              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button data-id="${addTask.id}">Mark Complete</button></span></div>`)
           } else {
-              $('todos').append(`
-              <div class="done"><li>${response.task}</li><span><button data-id="${response.id}">Remove</button></span></div>`)
+              $('.todos').append(`
+              <div class="done"><li>${addTask.task}</li><span><button data-id="${addTask.id}">Remove</button></span></div>`)
           }
    }
 }
