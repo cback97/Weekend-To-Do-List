@@ -3,7 +3,7 @@ const express = require('express')
 const app = express();
 const bodyParser = require(body-parser);
 const PORT = 5000;
-const ToDoRouter = require('./routes/todorouter.js');
+const ToDoRouter = require('./routes/todo.router.js');
 const pool = require('./modules/pool.js')
 
 const port = process.env.PORT || 5000;

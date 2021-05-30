@@ -17,6 +17,9 @@ function addORdelete(){
             task: $('.task-input').val()
         }
 
+        // Add new task to DB on click
+        captureTask(newTask);
+
     })
  
 } 

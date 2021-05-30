@@ -1,11 +1,11 @@
 const express = require('express');
 const {Router, response} = require('express');
-const ToDoRouter = express.Router();
+const router = express.Router();
 const pool = require('../modules/pool');
 
 
 // GET
-ToDoRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todo-list" ORDER BY "id";'
     pool.query(queryText).then(result => {
         res.send(result.rows);
@@ -16,12 +16,13 @@ ToDoRouter.get('/', (req, res) => {
 });
 
 // POST
-ToDoRouter.post('/', (req, res) => {
-    let newTask = req.body;
-    console.log('adding new task', newTask);
+router.post('/', (req, res) => {
+    let addTask = req.body;
+    console.log('HERE IS THE new TASK', addTask);
+    console.log('adding new task', addTask);
     let queryText = `INSERT INTO "todo-list" ("task")
                      VALUES ($1);`;
-    pool.query(queryText, [newTask.task])
+    pool.query(queryText, [addTask.task])
         .then(result => {
             res.sendStatus(201);
         })
@@ -37,4 +38,4 @@ ToDoRouter.post('/', (req, res) => {
 
 
 
-module.exports = ToDoRouter;
+module.exports = router;
