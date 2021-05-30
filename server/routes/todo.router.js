@@ -31,10 +31,37 @@ router.post('/', (req, res) => {
         })
 });
 // PUT
-
+router.put('/:id', (req, res) => {
+    let id= req.params.id;
+    console.log(id);
+    let queryText= `UPDATE "todo-list" SET "done" = 'true' WHERE "id" =$1;`;
+    pool.query(queryText,[id])
+    .then(response => {
+        console.log('THIS TASK IS DONE', id);
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('Error with completing task');
+        res.sendStatus(500);
+    })
+})
 
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    let id= req.params.id;
+    console.log(id);
+    let queryText= `DELETE FROM "todo-list" WHERE "id" =$1;`;
+    pool.query(queryText,[id])
+    .then(response => {
+        console.log('THIS TASK IS DELETED', id);
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('Error with deleting task');
+        res.sendStatus(500);
+    })
+})
 
 
 

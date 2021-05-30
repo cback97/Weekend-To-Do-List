@@ -18,7 +18,8 @@ function addORdelete(){
         // Add new task to DB on click
         captureTask(newTask);
     });
-$('.done').on('click', '.completeTask', finishedTaskHandler)
+$('.todos').on('click', '.completeTask', finishedTaskHandler);
+$('.done').on('click', '.deleteTask', deleteTaskHandler );
  
 } 
 
@@ -37,12 +38,13 @@ $.ajax({
     console.log('POST error', error);
     alert('unable to create new task, try again later')
 })
-
+$('.task-input').val('')
 }
 
 
 
 function getTasks() {
+    
     $.ajax({
         type: 'GET',
         url: '/todos'
@@ -58,13 +60,16 @@ function getTasks() {
 
 
 function renderTasks(addTask) {
+    
+    $('.done').empty();
    $('.todos').empty();
+   
    for (let i= 0; i < addTask.length; i++) {
           if (addTask[i].done == false ) {
-              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask.id}">Mark Complete</button></span></div>`)
+              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask[i].id}">Mark Complete</button></span></div>`)
           } else {
               $('.done').append(`
-              <div class="done"><li>${addTask.task}</li><span><button class="deleteTask" data-id="${addTask.id}">Remove</button></span></div>`)
+              <div class="done"><li>${addTask[i].task}</li><span><button class="deleteTask" data-id="${addTask[i].id}">Remove</button></span></div>`)
           }
    }
 }
@@ -74,15 +79,35 @@ function finishedTaskHandler(){
     finishedTask($(this).data("id"));
 }
 
-function finishedTask(taskID){
+function finishedTask(addTaskID,){
+    
     $.ajax({
         method:'PUT',
-        url:`/todos/${taskID}`,
-        data: taskID
+        url:`/todos/${addTaskID}`,
+        data: addTaskID
     }).then( response => {
         // re-render tasks
         getTasks();
     }).catch( error => {
         console.log('Error, Not able to mark task complete', error);
+    })
+}
+
+function deleteTaskHandler(){
+    deleteTask($(this).data("id"))
+}
+
+function deleteTask(addTaskID) {
+    console.log('DELETED');
+    $.ajax({
+        method:'DELETE',
+        url: `/todos/${addTaskID}`
+    })
+    .then(response => {
+        console.log('TASK DELETED');
+        getTasks();
+    })
+    .catch( error => {
+        alert('Error deleting Task.', error)
     })
 }
