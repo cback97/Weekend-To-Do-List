@@ -67,3 +67,11 @@ h4 {
     cursor: pointer;
     font-size: 25px;
 }
+
+#yellow{
+    color: red;
+}
+
+#green{
+    color: green;
+}

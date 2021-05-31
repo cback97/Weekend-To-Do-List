@@ -18,8 +18,8 @@ function addORdelete(){
         // Add new task to DB on click
         captureTask(newTask);
     });
-$('.todos').on('click', '.completeTask', finishedTaskHandler);
-$('.done').on('click', '.deleteTask', deleteTaskHandler );
+$('#todos').on('click', '.completeTask', finishedTaskHandler);
+$('#done').on('click', '.deleteTask', deleteTaskHandler );
  
 } 
 
@@ -51,7 +51,8 @@ function getTasks() {
     }).then(response => {
         console.log(response);
         //must render tasks onto DOM here
-       renderTasks(response);
+        rendercompleteTasks(response);
+        renderuncompleteTasks(response);
     }).catch(error => {
         console.log('GET error', error);
     });
@@ -59,23 +60,32 @@ function getTasks() {
 
 
 
-function renderTasks(addTask) {
+function renderuncompleteTasks(addTask) {
     
-    $('.done').empty();
-   $('.todos').empty();
+    $('#todos').empty();
    
    for (let i= 0; i < addTask.length; i++) {
           if (addTask[i].done == false ) {
-              $('.todos').append(`<div class="active"><li>${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask[i].id}">Mark Complete</button></span></div>`)
-          } else {
-              $('.done').append(`
-              <div class="done"><li>${addTask[i].task}</li><span><button class="deleteTask" data-id="${addTask[i].id}">Remove</button></span></div>`)
-          }
-   }
+              $('#todos').append(`<div class="active"><li id="green">${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask[i].id}">Mark Complete</button></span></div>`)
+          } 
+}
+}
+
+function rendercompleteTasks(addTask) {
+    
+    $('#done').empty();
+   
+   for (let i= 0; i < addTask.length; i++) {
+    if(addTask[i].done == true) {
+        $('#done').append(`
+        <div class="complete"><li id="yellow">${addTask[i].task}</li><span><button class="deleteTask" data-id="${addTask[i].id}">Remove</button></span></div>`)
+    }
+ }
 }
 
 // click handler
 function finishedTaskHandler(){
+    $('#done').empty();
     finishedTask($(this).data("id"));
 }
 
