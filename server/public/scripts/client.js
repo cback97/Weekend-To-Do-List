@@ -68,7 +68,7 @@ function renderuncompleteTasks(addTask) {
           if (addTask[i].done == false ) {
               $('#todos').append(`<div class="active"><li id="green">${addTask[i].task}</li><span><button class="completeTask" data-id="${addTask[i].id}">Mark Complete</button></span></div>`)
           } 
-}
+ }
 }
 
 function rendercompleteTasks(addTask) {
