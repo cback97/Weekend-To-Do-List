@@ -1,9 +1,20 @@
-# Project Name
+# Weekend To-Do List
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
 
-## Description
+## Set-Up
+- set up database in Postico per database.sql: run => "postgresql weekend-to-do-app > database.sql" in terminal
+- run npm install
+ 
+## Objective
+- Create a to-do list web app with the ability to add new tasks, as well as mark them complete to view in different sector. 
+- items in accomplished tasks sector will be able to be removed!
 
-Your project description goes here. What problem did you solve? How did you solve it?
+## Technologies
+- JQuery
+- Node
+- Express
+- SQL
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+
+## Credit
+Thank you Prime Staff and Students, as this project would not be made possible without your guidance and passion.
